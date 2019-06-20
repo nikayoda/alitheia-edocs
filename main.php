@@ -1,12 +1,12 @@
 <?php
 /*
-  Plugin Name: Tsunami Forms
+  Plugin Name: Alitheia eDocs
   Version: 1.0.1
-  Plugin URI: https://tsunami.media/
-  Author: Tsunami Media, LLC
-  Author URI: https://tsunami.media/
-  Description: Generate PDF document based on form data.
-  Text Domain: Tsunami PDF Generator
+  Plugin URI: https://alitheiaholdings.com/
+  Author: Alitheia Holdings, inc
+  Author URI: https://alitheiaholdings.com/
+  Description: Generate PDF document.
+  Text Domain: Alitheia PDF Generator
   Domain Path: /languages
  */
 
