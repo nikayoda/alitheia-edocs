@@ -1,0 +1,16 @@
+{
+    "name": "tsunami/forms",
+    "type": "library",
+    "require": {
+        "spipu/html2pdf": "^5.2",
+        "dompdf/dompdf": "^0.8.3"
+    },
+    "require-dev": {
+    },
+    "authors": [
+        {
+            "name": "Nika Revazishvili",
+            "email": "nika@revazishvili.com"
+        }
+    ]
+}
