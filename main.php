@@ -10,13 +10,9 @@
   Domain Path: /languages
  */
 
-if (!defined('ABSPATH'))
-    exit;
+if (!defined('ABSPATH')) exit;
 
-
-define()
-
-class tsunami_forms {
+class alitheia_edocs {
 
     var $plugin_version = '1.0';
     var $plugin_url;
