@@ -8,29 +8,29 @@ use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
 
 /**
- * Class tsunami-forms
+ * Class alitheia-forms
  * @author Me
  */
 class custom_forms
 {
 
-    public function tsunami_forms_page()
+    public function alitheia_forms_page()
     {
         $labels = array(
-            'name' => __('Tsunami Forms', 'tsunami_forms'),
-            'singular_name' => __('TsunamiForms', 'tsunami_forms'),
-            'menu_name' => __('Tsunami Forms', 'tsunami_forms'),
-            'name_admin_bar' => __('company', 'tsunami_forms'),
-            'add_new' => __('Add New', 'tsunami_forms'),
-            'add_new_item' => __('Add New company', 'tsunami_forms'),
-            'new_item' => __('New company', 'tsunami_forms'),
-            'edit_item' => __('Edit company', 'tsunami_forms'),
-            'view_item' => __('View company', 'tsunami_forms'),
-            'all_items' => __('All companies', 'tsunami_forms'),
-            'search_items' => __('Search companies', 'tsunami_forms'),
-            'parent_item_colon' => __('Parent companies:', 'tsunami_forms'),
-            'not_found' => __('No companies found.', 'tsunami_forms'),
-            'not_found_in_trash' => __('No companies found in Trash.', 'tsunami_forms')
+            'name' => __('alitheia Forms', 'alitheia_forms'),
+            'singular_name' => __('alitheiaForms', 'alitheia_forms'),
+            'menu_name' => __('alitheia Forms', 'alitheia_forms'),
+            'name_admin_bar' => __('company', 'alitheia_forms'),
+            'add_new' => __('Add New', 'alitheia_forms'),
+            'add_new_item' => __('Add New company', 'alitheia_forms'),
+            'new_item' => __('New company', 'alitheia_forms'),
+            'edit_item' => __('Edit company', 'alitheia_forms'),
+            'view_item' => __('View company', 'alitheia_forms'),
+            'all_items' => __('All companies', 'alitheia_forms'),
+            'search_items' => __('Search companies', 'alitheia_forms'),
+            'parent_item_colon' => __('Parent companies:', 'alitheia_forms'),
+            'not_found' => __('No companies found.', 'alitheia_forms'),
+            'not_found_in_trash' => __('No companies found in Trash.', 'alitheia_forms')
         );
 
         $args = array(
@@ -60,22 +60,22 @@ class custom_forms
             ),
         );
 
-        register_post_type('tsunami_forms', $args);
+        register_post_type('alitheia_forms', $args);
 
     }
 
 
-    public function tsunami_forms_columns($columns)
+    public function alitheia_forms_columns($columns)
     {
         unset($columns['title']);
         unset($columns['date']);
         $edited_columns = array(
-            'tsf_name' => __('Contact Name', 'tsunami_forms'),
-            'tsf_email' => __('E-Mail', 'tsunami_forms'),
-            'tsf_tel' => __('Tel', 'tsunami_forms'),
-            'tsf_company' => __('Company', 'tsunami_forms'),
-            'tsf_address' => __('Address', 'tsunami_forms'),
-            'date' => __('Date', 'tsunami_forms')
+            'tsf_name' => __('Contact Name', 'alitheia_forms'),
+            'tsf_email' => __('E-Mail', 'alitheia_forms'),
+            'tsf_tel' => __('Tel', 'alitheia_forms'),
+            'tsf_company' => __('Company', 'alitheia_forms'),
+            'tsf_address' => __('Address', 'alitheia_forms'),
+            'date' => __('Date', 'alitheia_forms')
         );
         return array_merge($columns, $edited_columns);
     }
@@ -110,7 +110,7 @@ class custom_forms
     }
 
     //meta boxes
-    public function tsunami_forms_meta_box($post)
+    public function alitheia_forms_meta_box($post)
     {
         $tsf_name = get_post_meta($post->ID, '_tsf_name', true);
         $tsf_tel = get_post_meta($post->ID, '_tsf_tel', true);
@@ -123,32 +123,32 @@ class custom_forms
         <table class="form-table">
             <tbody>
             <tr valign="top">
-                <th scope="row"><label for="tsf_name"><?php _e('Full name', 'tsunami_forms'); ?></label></th>
+                <th scope="row"><label for="tsf_name"><?php _e('Full name', 'alitheia_forms'); ?></label></th>
                 <td><input name="tsf_name" type="text" id="tsf_name" value="<?php echo $tsf_name; ?>"
                            class="regular-text">
                     <p class="description">Enter your name (John Doe)</p></td>
             </tr>
             <tr valign="top">
-                <th scope="row"><label for="tsf_email"><?php _e('E-mail', 'tsunami_forms'); ?></label></th>
+                <th scope="row"><label for="tsf_email"><?php _e('E-mail', 'alitheia_forms'); ?></label></th>
                 <td><input name="tsf_email" type="text" id="tsf_email" value="<?php echo $tsf_email; ?>"
                            class="regular-text">
                     <p class="description">Enter email ( john.doe@icloud.com ) </p></td>
             </tr>
             <tr valign="top">
-                <th scope="row"><label for="tsf_tel"><?php _e('Phone Number', 'tsunami_forms'); ?></label></th>
+                <th scope="row"><label for="tsf_tel"><?php _e('Phone Number', 'alitheia_forms'); ?></label></th>
                 <td><input name="tsf_tel" type="text" id="tsf_tel" value="<?php echo $tsf_tel; ?>"
                            class="regular-text">
                     <p class="description">Enter phone number ( Country code + region + number, for example 1xxxxxxxxx)</p>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><label for="_tsf_company"><?php _e('Company name', 'tsunami_forms'); ?></label></th>
+                <th scope="row"><label for="_tsf_company"><?php _e('Company name', 'alitheia_forms'); ?></label></th>
                 <td><input name="tsf_company" type="text" id="tsf_company" value="<?php echo $tsf_company; ?>"
                            class="regular-text">
                     <p class="description">Enter your company name (Apple, inc)</p></td>
             </tr>
             <tr valign="top">
-                <th scope="row"><label for="tsf_address"><?php _e('Address', 'tsunami_forms'); ?></label></th>
+                <th scope="row"><label for="tsf_address"><?php _e('Address', 'alitheia_forms'); ?></label></th>
                 <td><input name="tsf_address" type="text" id="tsf_address" value="<?php echo $tsf_address; ?>"
                            class="regular-text">
                     <p class="description">Enter your address</p></td>
@@ -279,7 +279,7 @@ class custom_forms
                     'post_status' => 'publish',
                     'post_author' => 1,
                     //'post_category' => array(8, 39),
-                    'post_type' => 'tsunami_forms'
+                    'post_type' => 'alitheia_forms'
 
                 );
                 // Insert the post into the database
@@ -290,15 +290,15 @@ class custom_forms
                 foreach ($post_metas as $key => $meta) {
                     update_post_meta($post_id, '_' . $key, $meta);
                 }
-                wp_redirect('/?tsunami_forms=' . $post_id);
+                wp_redirect('/?alitheia_forms=' . $post_id);
                 exit();
             }else{
                 return;
             }
-        } elseif (!empty($_GET['tsunami_forms']) && !empty($_GET['tsunami_forms'])) {
+        } elseif (!empty($_GET['alitheia_forms']) && !empty($_GET['alitheia_forms'])) {
 
             try {
-                $title = sanitize_text_field($_GET['tsunami_forms']);
+                $title = sanitize_text_field($_GET['alitheia_forms']);
 
                 $meta = $wpdb->get_results("SELECT meta_key, meta_value FROM {$wpdb->prefix}postmeta WHERE `post_id` = '" . $title . "'");
 
