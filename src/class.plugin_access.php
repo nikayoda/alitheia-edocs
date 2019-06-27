@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Alitheia\Access;
+namespace Alitheia\IPlugin;
 
 
 class PluginAccess
@@ -11,7 +11,7 @@ class PluginAccess
      * Handling new role for specific users to have access to alitheia document generation plugin
      *
      */
-    private function handle_plugin_role_cap(string $plugin_role, bool $activate){
+    public function register_role_cap(string $plugin_role, bool $activate){
 
         // Check plugin for conflicts
         if(!is_plugin_active(__FILE__) && gettype(get_role( $plugin_role )) === "object" && $activate !== false){

@@ -1,8 +1,8 @@
 <?php
 
-namespace Alitheia\Html;
+namespace Alitheia\IPlugin;
 
-class Forms
+class Html implements IHtml
 {
     public function debug_page_html()
     {
@@ -31,7 +31,7 @@ class Forms
                         echo '<div id="message" class="error"><p>' . __('Debug log file could not be reset', 'alitheia_edocs') . '!</p></div>';
                     }
                 }
-                $real_file = AeDoc_DEBUG_LOG_PATH;
+                $real_file = AeDoc_debug_log_path;
                 $content = file_get_contents($real_file);
                 $content = esc_textarea($content);
                 ?>
@@ -105,58 +105,8 @@ class Forms
     }
 
     //meta boxes
-    public function alitheia_edocs_meta_box($post)
-    {
-        $tsf_name = get_post_meta($post->ID, '_tsf_name', true);
-        $tsf_tel = get_post_meta($post->ID, '_tsf_tel', true);
-        $tsf_email = get_post_meta($post->ID, '_tsf_email', true);
-        $tsf_company = get_post_meta($post->ID, '_tsf_company', true);
-        $tsf_address = get_post_meta($post->ID, '_tsf_address', true);
-        // Add an nonce field so we can check for it later.
-        wp_nonce_field('tsfgen_meta_box', 'tsfgen_meta_box_nonce');
-        ?>
-        <table class="form-table">
-            <tbody>
-            <tr valign="top">
-                <th scope="row"><label for="tsf_name"><?php _e('Full name', 'alitheia_edocs'); ?></label></th>
-                <td><input name="tsf_name" type="text" id="tsf_name" value="<?php echo $tsf_name; ?>"
-                           class="regular-text">
-                    <p class="description">Enter your name (John Doe)</p></td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="tsf_email"><?php _e('E-mail', 'alitheia_edocs'); ?></label></th>
-                <td><input name="tsf_email" type="text" id="tsf_email" value="<?php echo $tsf_email; ?>"
-                           class="regular-text">
-                    <p class="description">Enter email ( john.doe@icloud.com ) </p></td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="tsf_tel"><?php _e('Phone Number', 'alitheia_edocs'); ?></label></th>
-                <td><input name="tsf_tel" type="text" id="tsf_tel" value="<?php echo $tsf_tel; ?>"
-                           class="regular-text">
-                    <p class="description">Enter phone number ( Country code + region + number, for example
-                        1xxxxxxxxx)</p>
-                </td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="_tsf_company"><?php _e('Company name', 'alitheia_edocs'); ?></label></th>
-                <td><input name="tsf_company" type="text" id="tsf_company" value="<?php echo $tsf_company; ?>"
-                           class="regular-text">
-                    <p class="description">Enter your company name (Apple, inc)</p></td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="tsf_address"><?php _e('Address', 'alitheia_edocs'); ?></label></th>
-                <td><input name="tsf_address" type="text" id="tsf_address" value="<?php echo $tsf_address; ?>"
-                           class="regular-text">
-                    <p class="description">Enter your address</p></td>
-            </tr>
-            </tbody>
 
-        </table>
-
-    <?php }
-
-    public function general_settings_html()
-    { ?>
+    public function general_settings_html() { ?>
         <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
             <?php wp_nonce_field('form_generator_general_settings'); ?>
 
@@ -194,7 +144,5 @@ class Forms
                                      id="form_generator_update_settings" class="button button-primary"
                                      value="<?Php _e('Save Changes', 'alitheia_edocs'); ?>"></p></form>
 
-    <?php } ?>
-
-
-<?php } ?>
+    <?php }
+} ?>
